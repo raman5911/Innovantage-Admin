@@ -307,7 +307,7 @@ function CareerPage() {
         apiResponseResult.data.message !== undefined
       ) {
         setApiResponse({
-          ...apiResponseResult,
+          ...apiResponse,
           type: apiResponseResult.status === 200 ? "success" : "error",
           message: apiResponseResult.data.message,
         });
@@ -322,7 +322,7 @@ function CareerPage() {
         error.data.message !== undefined
       ) {
         setApiResponse({
-          ...apiResponseResult,
+          ...apiResponse,
           type: "error",
           message: error.data.message,
         });
