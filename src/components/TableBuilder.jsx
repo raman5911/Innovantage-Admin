@@ -12,7 +12,7 @@ const TableBuilder = (props) => {
 
   return (
     <>
-      <TableContainer component={Paper} style={{ maxHeight: `${height !== undefined ? height : '320px'}` }}>
+      <TableContainer component={Paper} style={{ maxHeight: `${height !== undefined ? height : '320px'}`, marginTop: "1rem" }}>
         <Table sx={{ minWidth: 650 }} stickyHeader aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -34,7 +34,7 @@ const TableBuilder = (props) => {
                     {columns.map((col, index) => {
                       return (
                       <>
-                        <TableCell>{col.render !== undefined && col.render === true ? col.renderValue(row, col.key) : row[col.key] }</TableCell>
+                        <TableCell key={index + 1}>{col.render !== undefined && col.render === true ? col.renderValue(row, col.key) : row[col.key] }</TableCell>
                       </>);
                     })}
 

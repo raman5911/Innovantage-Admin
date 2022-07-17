@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import CareerPage from "./CareerPage";
-import LorryReceipt from "./LorryReceipt";
+import LRMainComponent from "./LRAndTracking";
 
 const Routes = () => {
     return (
@@ -22,7 +22,7 @@ const Routes = () => {
 				</Route>
 
 				<Route path="/lr">
-					<LorryReceipt />
+					<LRMainComponent />
 				</Route>
 
 				<Route path="/career">

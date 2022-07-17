@@ -12,6 +12,18 @@ export function format_date_in_user_time_zone(date, zone, formatString) {
     return currentTime;
 }
 
+export function get_time_from_date(req_date) {
+    const date = new Date(req_date);
+    let hours = date.getHours(); 
+    hours = hours < 10 ? "0" + hours : hours;
+
+    let minutes = date.getMinutes();
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+
+    const time = hours + ":" + minutes;
+    return time;
+} 
+
 export async function post(url, payload, config) {
     const result = await axios.post(url, payload, config);
     return result;

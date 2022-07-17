@@ -21,10 +21,8 @@ import { format_date } from "../utils";
 import BackDrop from "./BackDrop";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { set } from "date-fns";
 
 function CareerPage() {
   const [modal, setModal] = useState(false);
@@ -339,7 +337,7 @@ function CareerPage() {
       });
       isEditButtonClicked.current = true;
     } else if (type === "delete") {
-      console.log(currentJob);
+      // console.log(currentJob);
       
       // deleteJob(currentJob._id);
       setDeleteConfirmModal(true);
@@ -422,7 +420,16 @@ function CareerPage() {
         buttonText={"Save Changes"}
       />
 
-      <DeleteModal open={deleteConfirmModal} handleClose={() => {setDeleteConfirmModal(false)}} handleSubmit={() => {setDeleteConfirmModal(false); deleteJob(currentJob._id); }} />
+      <DeleteModal
+        open={deleteConfirmModal}
+        handleClose={() => {
+          setDeleteConfirmModal(false);
+        }}
+        handleSubmit={() => {
+          setDeleteConfirmModal(false);
+          deleteJob(currentJob._id);
+        }}
+      />
 
       <Grid>
         {/* <style></style> */}
@@ -467,7 +474,11 @@ function CareerPage() {
               key: "post_link",
               render: true,
               renderValue: (row, key) => {
-                return <a href={`${row[key]}`} target="_blank">{row[key]}</a>;
+                return (
+                  <a href={`${row[key]}`} target="_blank">
+                    {row[key]}
+                  </a>
+                );
               },
             },
             {
